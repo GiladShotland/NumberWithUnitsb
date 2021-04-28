@@ -22,15 +22,15 @@ namespace ariel
     public:
         NumberWithUnits(double value, const string &t);
         static void read_units(ifstream &file);
-        friend NumberWithUnits operator+(NumberWithUnits &num1, NumberWithUnits &num2);
+        friend NumberWithUnits operator+(const NumberWithUnits &num1, const NumberWithUnits &num2);
         NumberWithUnits &operator+=(const NumberWithUnits &num);
         NumberWithUnits operator+() { return *this; };
-        friend NumberWithUnits operator-(NumberWithUnits &num1, NumberWithUnits &num2);
-        NumberWithUnits &operator-=(NumberWithUnits &num);
+        friend NumberWithUnits operator-(const NumberWithUnits &num1, const NumberWithUnits &num2);
+        NumberWithUnits &operator-=(const NumberWithUnits &num);
         NumberWithUnits operator-();
         // friend NumberWithUnits &operator*(NumberWithUnits &a, double x);
-        friend NumberWithUnits operator*(double num1, NumberWithUnits &num2);
-        friend NumberWithUnits operator*(NumberWithUnits &num1, double num2);
+        friend NumberWithUnits operator*(double num1, const NumberWithUnits &num2);
+        friend NumberWithUnits operator*(const NumberWithUnits &num1, double num2);
         friend bool operator>(const NumberWithUnits &num1, const NumberWithUnits &num2);
         friend bool operator>=(const NumberWithUnits &num1, const NumberWithUnits &num2);
         friend bool operator==(const NumberWithUnits &num1, const NumberWithUnits &num2);
@@ -41,7 +41,7 @@ namespace ariel
         NumberWithUnits operator++(int flag);
         NumberWithUnits &operator--();
         NumberWithUnits operator--(int flag);
-        friend void operator>>(istream &input, NumberWithUnits &num);
+        friend istream &operator>>(istream &input, NumberWithUnits &num);
         friend ostream &operator<<(ostream &os, const NumberWithUnits &input);
         string get_type();
         double get_value() const;
